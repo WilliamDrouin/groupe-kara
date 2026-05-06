@@ -1,24 +1,10 @@
 ---
-import "../styles/global.css";
+import Layout from "@/components/layout/Layout.astro";
+import Hero from "@/components/sections/Hero.astro";
 ---
 
-<!doctype html>
-<html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Groupe Kara — Acquisition de PME rentables au Québec. Acquérir. Structurer. Faire croître." />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-    <title>Groupe Kara — Acquérir. Structurer. Faire croître.</title>
-  </head>
-  <body>
-    <main>
-      <p style="color: #D4AF37; font-family: 'Playfair Display', serif; text-align: center; padding: 4rem;">
-        Groupe Kara — Setup OK ✓
-      </p>
-    </main>
-  </body>
-</html>
+<Layout>
+  <main>
+    <Hero />
+  </main>
+</Layout>

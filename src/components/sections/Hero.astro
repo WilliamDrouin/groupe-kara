@@ -1,0 +1,164 @@
+---
+import Button from "@/components/ui/Button.astro";
+---
+
+<section
+  id="hero"
+  class="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
+>
+  <!-- Background layers -->
+  <div class="absolute inset-0 bg-[#0A0A0A]"></div>
+
+  <!-- Geometric grid pattern -->
+  <div class="absolute inset-0 hero-grid opacity-100"></div>
+
+  <!-- Radial gradient glow (center) -->
+  <div class="absolute inset-0 hero-glow"></div>
+
+  <!-- Gold horizontal line accent (top-left) -->
+  <div
+    class="absolute top-0 left-0 w-px h-40 bg-gradient-to-b from-transparent via-[#D4AF37] to-transparent opacity-30"
+  >
+  </div>
+  <div
+    class="absolute top-0 right-0 w-px h-40 bg-gradient-to-b from-transparent via-[#D4AF37] to-transparent opacity-30"
+  >
+  </div>
+
+  <!-- Content -->
+  <div class="relative z-10 max-w-5xl mx-auto px-6 lg:px-12 text-center">
+    <!-- Eyebrow -->
+    <div class="hero-item" style="animation-delay: 0.1s">
+      <span
+        class="inline-flex items-center gap-3 font-sans text-[10px] tracking-[0.4em] uppercase text-[#D4AF37] mb-10"
+      >
+        <span class="block w-8 h-px bg-[#D4AF37] opacity-60"></span>
+        Québec · M&amp;A · PME
+        <span class="block w-8 h-px bg-[#D4AF37] opacity-60"></span>
+      </span>
+    </div>
+
+    <!-- Main headline -->
+    <h1 class="hero-item font-serif leading-none mb-8" style="animation-delay: 0.25s">
+      <span class="block text-[clamp(3rem,8vw,7rem)] font-bold text-[#E8E8E8] tracking-tight">
+        Acquérir.
+      </span>
+      <span class="block text-[clamp(3rem,8vw,7rem)] font-bold text-[#E8E8E8] tracking-tight">
+        Structurer.
+      </span>
+      <span class="block text-[clamp(3rem,8vw,7rem)] font-bold text-[#D4AF37] tracking-tight">
+        Faire croître.
+      </span>
+    </h1>
+
+    <!-- Gold divider -->
+    <div class="hero-item flex justify-center mb-8" style="animation-delay: 0.4s">
+      <div class="w-16 h-px bg-[#D4AF37] opacity-60"></div>
+    </div>
+
+    <!-- Subtitle -->
+    <p
+      class="hero-item font-sans text-[clamp(1rem,2.5vw,1.25rem)] font-light text-[#888888] max-w-2xl mx-auto leading-relaxed mb-12"
+      style="animation-delay: 0.5s"
+    >
+      Nous accompagnons les propriétaires de PME québécoises dans
+      la prochaine étape de leur entreprise.
+    </p>
+
+    <!-- CTAs -->
+    <div
+      class="hero-item flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
+      style="animation-delay: 0.65s"
+    >
+      <Button href="#contact" variant="primary" size="lg">
+        Démarrer une conversation
+      </Button>
+      <Button href="#apropos" variant="ghost" size="lg">
+        Découvrir notre approche
+      </Button>
+    </div>
+
+    <!-- Trust signals -->
+    <div class="hero-item" style="animation-delay: 0.8s">
+      <ul
+        class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6"
+      >
+        {
+          [
+            "Confidentialité absolue",
+            "Approche humaine",
+            "Continuité assurée",
+          ].map((signal, i) => (
+            <li class="flex items-center gap-3">
+              {i > 0 && (
+                <span class="hidden sm:block w-1 h-1 rounded-full bg-[#D4AF37] opacity-40" />
+              )}
+              <span class="font-sans text-xs tracking-widest uppercase text-[#555555]">
+                {signal}
+              </span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+
+  <!-- Bottom fade -->
+  <div
+    class="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#0A0A0A] to-transparent"
+  >
+  </div>
+
+  <!-- Scroll indicator -->
+  <div
+    class="hero-item absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+    style="animation-delay: 1.1s"
+  >
+    <span class="font-sans text-[9px] tracking-[0.3em] uppercase text-[#333333]">
+      Défiler
+    </span>
+    <div class="scroll-indicator w-px h-8 bg-gradient-to-b from-[#D4AF37] to-transparent opacity-40">
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-grid {
+    background-image:
+      linear-gradient(rgba(212, 175, 55, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(212, 175, 55, 0.035) 1px, transparent 1px);
+    background-size: 80px 80px;
+  }
+
+  .hero-glow {
+    background: radial-gradient(
+      ellipse 70% 60% at 50% 50%,
+      rgba(212, 175, 55, 0.04) 0%,
+      transparent 70%
+    );
+  }
+
+  /* Fade-in + slide-up */
+  .hero-item {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+
+  @keyframes fadeUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Subtle pulse on scroll indicator */
+  .scroll-indicator {
+    animation: pulse 2.5s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.8; }
+  }
+</style>
