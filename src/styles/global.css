@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+@theme {
+  /* Couleurs */
+  --color-kara-black: #0a0a0a;
+  --color-kara-dark: #111111;
+  --color-kara-card: #161616;
+  --color-kara-border: #222222;
+  --color-kara-gold: #d4af37;
+  --color-kara-gold-light: #e8c84a;
+  --color-kara-gold-muted: #b8962e;
+  --color-kara-text: #e8e8e8;
+  --color-kara-muted: #888888;
+
+  /* Typographie */
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-kara-black);
+    color: var(--color-kara-text);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: var(--color-kara-gold);
+    color: var(--color-kara-black);
+  }
+}
