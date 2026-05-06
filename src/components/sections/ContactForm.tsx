@@ -51,19 +51,36 @@ export default function ContactForm() {
     const result = schema.safeParse(form);
     if (!result.success) {
       const fieldErrors: FieldErrors = {};
-      result.error.errors.forEach((err) => {
-        const field = err.path[0] as keyof FormData;
-        if (!fieldErrors[field]) fieldErrors[field] = err.message;
+      result.error.issues.forEach((issue) => {
+        const field = issue.path[0] as keyof FormData;
+        if (!fieldErrors[field]) fieldErrors[field] = issue.message;
       });
       setErrors(fieldErrors);
       return;
     }
 
     setStatus("loading");
+
+    // ─── DEMO MODE (current) ─────────────────────────────────────────────
+    // Simulates a network round-trip so the loading state is visible.
     await new Promise((r) => setTimeout(r, 1600));
 
-    // Demo mode — no real email sent
-    // Production: POST to /api/contact with Resend
+    // ─── PRODUCTION SWAP ─────────────────────────────────────────────────
+    // To enable real email sending (after wiring api/contact + Resend),
+    // replace the line above with:
+    //
+    //   const res = await fetch("/api/contact", {
+    //     method: "POST",
+    //     headers: { "content-type": "application/json" },
+    //     body: JSON.stringify(form),
+    //   });
+    //   const json = await res.json();
+    //   if (!json.ok) {
+    //     setStatus("idle");
+    //     setErrors({ message: "Une erreur est survenue. Réessayez ou écrivez-nous directement." });
+    //     return;
+    //   }
+    // ─────────────────────────────────────────────────────────────────────
 
     setStatus("success");
     setForm(EMPTY);
