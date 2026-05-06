@@ -1,0 +1,152 @@
+---
+const piliers = [
+  {
+    number: "01",
+    icon: `<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M16 3L4 8V16C4 22.627 9.373 28 16 28C22.627 28 28 22.627 28 16V8L16 3Z" stroke="#D4AF37" stroke-width="1.5" stroke-linejoin="round"/>
+      <path d="M11 16L14.5 19.5L21 13" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>`,
+    title: "Transaction sérieuse et confidentielle",
+    description:
+      "Chaque conversation, chaque document, chaque étape demeure strictement entre nous. La discrétion n'est pas une option — c'est notre fondement.",
+  },
+  {
+    number: "02",
+    icon: `<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="10" cy="16" r="5" stroke="#D4AF37" stroke-width="1.5"/>
+      <circle cx="22" cy="16" r="5" stroke="#D4AF37" stroke-width="1.5"/>
+      <path d="M15 16H17" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M10 8V6" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+      <path d="M22 8V6" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+    </svg>`,
+    title: "Continuité pour employés et clients",
+    description:
+      "Votre équipe a construit quelque chose avec vous. Vos clients vous font confiance. Nous nous engageons à préserver ce que vous avez bâti.",
+  },
+  {
+    number: "03",
+    icon: `<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M10 22C10 22 8 20 8 16C8 12 10.686 9 14 9" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M22 22C22 22 24 20 24 16C24 12 21.314 9 18 9" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round"/>
+      <circle cx="16" cy="16" r="3" stroke="#D4AF37" stroke-width="1.5"/>
+      <path d="M16 6V8" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+      <path d="M16 24V26" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+    </svg>`,
+    title: "Approche humaine et professionnelle",
+    description:
+      "Pas de jargon. Pas de pression. Une discussion franche et respectueuse, à votre rythme. Vous méritez d'être traité comme un partenaire.",
+  },
+  {
+    number: "04",
+    icon: `<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M6 22L12 15L17 19L26 9" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M21 9H26V14" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M6 26H26" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round" opacity="0.3"/>
+    </svg>`,
+    title: "Capacité de croissance post-acquisition",
+    description:
+      "Nous n'acquérons pas pour maintenir — nous acquérons pour faire croître. Avec les ressources, les systèmes et la vision pour aller plus loin.",
+  },
+];
+---
+
+<section id="criteres" class="relative py-32 lg:py-40 bg-[#0C0C0C]">
+  <!-- Top line accent -->
+  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/20 to-transparent">
+  </div>
+
+  <div class="max-w-7xl mx-auto px-6 lg:px-12">
+    <!-- Section header -->
+    <div class="max-w-2xl mb-24 reveal-approche">
+      <span class="inline-block font-sans text-[10px] tracking-[0.4em] uppercase text-[#D4AF37] mb-6">
+        Notre engagement
+      </span>
+      <h2 class="font-serif text-[clamp(2rem,5vw,3.5rem)] font-bold text-[#E8E8E8] leading-tight">
+        Notre engagement<br />
+        <em class="not-italic text-[#D4AF37]">envers vous</em>
+      </h2>
+    </div>
+
+    <!-- Piliers grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0">
+      {
+        piliers.map((pilier, i) => (
+          <div
+            class="pilier reveal-approche relative group px-8 py-10 lg:py-12 border-[#1A1A1A] transition-all duration-500
+              border-t
+              md:border-l md:first:border-l-0
+              lg:border-t-0 lg:border-l lg:first:border-l-0
+              hover:bg-[#0F0F0F]"
+            style={`transition-delay: ${i * 0.1}s`}
+          >
+            <!-- Gold top bar on hover -->
+            <div class="absolute top-0 left-0 h-px w-0 bg-[#D4AF37] transition-all duration-700 group-hover:w-full" />
+
+            <!-- Icon -->
+            <div class="mb-8" set:html={pilier.icon} />
+
+            <!-- Number -->
+            <span class="block font-sans text-[10px] tracking-[0.3em] text-[#333333] mb-4 uppercase">
+              {pilier.number}
+            </span>
+
+            <!-- Title -->
+            <h3 class="font-serif text-base font-semibold text-[#CCCCCC] mb-4 leading-snug group-hover:text-[#E8E8E8] transition-colors duration-300">
+              {pilier.title}
+            </h3>
+
+            <!-- Divider -->
+            <div class="w-6 h-px bg-[#D4AF37] opacity-40 mb-4 transition-all duration-500 group-hover:w-10 group-hover:opacity-70" />
+
+            <!-- Description -->
+            <p class="font-sans text-sm text-[#555555] leading-relaxed">
+              {pilier.description}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+  <!-- Bottom separator -->
+  <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/10 to-transparent">
+  </div>
+</section>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("revealed");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+
+  document.querySelectorAll("#criteres .reveal-approche").forEach((el) => {
+    observer.observe(el);
+  });
+</script>
+
+<style>
+  .reveal-approche {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+      opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .pilier:nth-child(1) { transition-delay: 0s; }
+  .pilier:nth-child(2) { transition-delay: 0.1s; }
+  .pilier:nth-child(3) { transition-delay: 0.2s; }
+  .pilier:nth-child(4) { transition-delay: 0.3s; }
+</style>
