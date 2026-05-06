@@ -1,5 +1,6 @@
 ---
 import Nav from "@/components/layout/Nav.astro";
+import Footer from "@/components/layout/Footer.astro";
 import "@/styles/global.css";
 
 interface Props {
@@ -31,5 +32,6 @@ const {
   <body class="bg-[#0A0A0A] text-[#E8E8E8] overflow-x-hidden">
     <Nav />
     <slot />
+    <Footer />
   </body>
 </html>

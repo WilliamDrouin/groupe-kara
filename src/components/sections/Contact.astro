@@ -1,0 +1,92 @@
+---
+import ContactForm from "@/components/sections/ContactForm";
+---
+
+<section id="contact" class="relative py-32 lg:py-40 bg-[#0A0A0A]">
+  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/15 to-transparent"></div>
+
+  <div class="max-w-7xl mx-auto px-6 lg:px-12">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+
+      <!-- Left: intro -->
+      <div class="reveal-contact">
+        <span class="inline-block font-sans text-[10px] tracking-[0.4em] uppercase text-[#D4AF37] mb-6">
+          Contact
+        </span>
+
+        <h2 class="font-serif text-[clamp(2rem,4.5vw,3.25rem)] font-bold text-[#E8E8E8] leading-tight mb-6">
+          Prêt à explorer<br />
+          <em class="not-italic text-[#D4AF37]">vos options?</em>
+        </h2>
+
+        <p class="font-sans text-sm text-[#666666] leading-relaxed mb-10 max-w-sm">
+          Conversation 100% confidentielle. Aucun engagement. Juste un échange
+          honnête pour voir si on peut faire quelque chose ensemble.
+        </p>
+
+        <!-- Trust points -->
+        <ul class="flex flex-col gap-4">
+          {
+            [
+              "Réponse dans les 24 heures",
+              "Aucun engagement requis",
+              "Confidentialité absolue garantie",
+            ].map((point) => (
+              <li class="flex items-center gap-3">
+                <span class="flex-shrink-0 w-4 h-px bg-[#D4AF37] opacity-60" />
+                <span class="font-sans text-xs text-[#555555] tracking-wide">
+                  {point}
+                </span>
+              </li>
+            ))
+          }
+        </ul>
+
+        <!-- Decorative vertical line -->
+        <div class="hidden lg:block mt-14 w-px h-24 bg-gradient-to-b from-[#D4AF37]/30 to-transparent"></div>
+      </div>
+
+      <!-- Right: form -->
+      <div class="reveal-contact" style="transition-delay: 0.15s">
+        <ContactForm client:visible />
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("revealed");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+
+  document.querySelectorAll("#contact .reveal-contact").forEach((el) => {
+    observer.observe(el);
+  });
+</script>
+
+<style>
+  .reveal-contact {
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+      opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .reveal-contact:nth-child(2) {
+    transition-delay: 0.15s;
+  }
+
+  .revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>

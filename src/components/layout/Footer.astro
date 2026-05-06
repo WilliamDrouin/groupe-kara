@@ -1,0 +1,96 @@
+---
+---
+
+<footer class="relative bg-[#080808] border-t border-[#141414]">
+  <!-- Top accent line -->
+  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/20 to-transparent"></div>
+
+  <div class="max-w-7xl mx-auto px-6 lg:px-12 py-16">
+    <!-- Main row -->
+    <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-10 mb-12">
+      <!-- Logo + tagline -->
+      <div>
+        <a href="#" class="flex items-center gap-3 group mb-3">
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 28 28"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            class="opacity-70 group-hover:opacity-100 transition-opacity duration-300"
+            aria-hidden="true"
+          >
+            <path
+              d="M6 22L14 6L22 22"
+              stroke="#D4AF37"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M9.5 17H18.5"
+              stroke="#D4AF37"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            />
+          </svg>
+          <span class="font-serif text-sm tracking-[0.25em] uppercase text-[#D4AF37] font-semibold">
+            Groupe Kara
+          </span>
+        </a>
+        <p class="font-sans text-xs tracking-widest text-[#333333] uppercase ml-[34px]">
+          Acquérir. Structurer. Faire croître.
+        </p>
+      </div>
+
+      <!-- Nav links -->
+      <nav aria-label="Navigation pied de page">
+        <ul class="flex flex-wrap gap-x-8 gap-y-3">
+          {
+            [
+              { label: "À propos", href: "#apropos" },
+              { label: "Critères", href: "#criteres" },
+              { label: "Processus", href: "#processus" },
+              { label: "Contact", href: "#contact" },
+            ].map(({ label, href }) => (
+              <li>
+                <a
+                  href={href}
+                  class="font-sans text-[10px] tracking-widest uppercase text-[#2E2E2E] hover:text-[#D4AF37] transition-colors duration-300"
+                >
+                  {label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Divider -->
+    <div class="w-full h-px bg-[#141414] mb-8"></div>
+
+    <!-- Bottom row -->
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <div class="flex flex-col gap-1">
+        <p class="font-sans text-[10px] text-[#2A2A2A] tracking-wide">
+          Québec, Canada &nbsp;·&nbsp;
+          <a
+            href="mailto:info@groupekara.ca"
+            class="hover:text-[#D4AF37]/50 transition-colors duration-300"
+          >
+            info@groupekara.ca
+          </a>
+        </p>
+        <p class="font-sans text-[10px] text-[#222222] tracking-wide">
+          © {new Date().getFullYear()} Groupe Kara. Tous droits réservés.
+        </p>
+      </div>
+
+      <!-- Credit -->
+      <p class="font-sans text-[9px] tracking-widest text-[#1E1E1E] uppercase">
+        Conçu par <span class="text-[#252525]">PowerAi</span>
+      </p>
+    </div>
+  </div>
+</footer>
