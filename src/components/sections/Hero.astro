@@ -1,5 +1,7 @@
 ---
 import Button from "@/components/ui/Button.astro";
+import { Image } from "astro:assets";
+import heroBg from "@/assets/images/sebastian-schuster-RJaiaSXRxwQ-unsplash.jpg";
 ---
 
 <section
@@ -8,6 +10,21 @@ import Button from "@/components/ui/Button.astro";
 >
   <!-- Background layers -->
   <div class="absolute inset-0 bg-[#0A0A0A]"></div>
+
+  <!-- Background photo (architectural B&W) -->
+  <Image
+    src={heroBg}
+    alt=""
+    aria-hidden="true"
+    loading="eager"
+    fetchpriority="high"
+    class="absolute inset-0 w-full h-full object-cover opacity-[0.18] mix-blend-luminosity"
+    widths={[768, 1280, 1920]}
+    sizes="100vw"
+  />
+
+  <!-- Dark overlay to preserve contrast -->
+  <div class="absolute inset-0 bg-[#0A0A0A]/75"></div>
 
   <!-- Geometric grid pattern -->
   <div class="absolute inset-0 hero-grid opacity-100"></div>

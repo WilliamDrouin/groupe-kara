@@ -1,9 +1,22 @@
 ---
+import { Image } from "astro:assets";
+import brandMark from "@/assets/images/groupekaralogo.jpg";
 ---
 
-<footer class="relative bg-[#080808] border-t border-[#141414]">
+<footer class="relative bg-[#080808] border-t border-[#141414] overflow-hidden">
   <!-- Top accent line -->
   <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/20 to-transparent"></div>
+
+  <!-- Brand mark watermark -->
+  <Image
+    src={brandMark}
+    alt=""
+    aria-hidden="true"
+    loading="lazy"
+    class="absolute -right-20 -bottom-20 w-[420px] h-[420px] object-contain opacity-[0.06] pointer-events-none select-none hidden md:block"
+    widths={[320, 480]}
+    sizes="420px"
+  />
 
   <div class="max-w-7xl mx-auto px-6 lg:px-12 py-16">
     <!-- Main row -->
