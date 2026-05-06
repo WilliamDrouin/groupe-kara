@@ -34,4 +34,28 @@
     background-color: var(--color-kara-gold);
     color: var(--color-kara-black);
   }
+
+  /* Initial hidden state for Motion-animated elements */
+  [data-reveal],
+  [data-reveal-item] {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  /* No-JS and reduced-motion fallback: show everything */
+  @media (prefers-reduced-motion: reduce) {
+    [data-reveal],
+    [data-reveal-item] {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @media (scripting: none) {
+    [data-reveal],
+    [data-reveal-item] {
+      opacity: 1;
+      transform: none;
+    }
+  }
 }

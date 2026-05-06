@@ -2,7 +2,10 @@
 ---
 
 <section id="philosophie" class="relative py-32 lg:py-48 bg-[#0A0A0A] overflow-hidden">
-  <!-- Decorative quote mark -->
+  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/15 to-transparent"></div>
+  <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/15 to-transparent"></div>
+
+  <!-- Decorative quote watermark -->
   <div
     class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-serif text-[20rem] leading-none text-[#D4AF37] opacity-[0.025] select-none pointer-events-none"
     aria-hidden="true"
@@ -10,75 +13,28 @@
     "
   </div>
 
-  <!-- Horizontal lines -->
-  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/15 to-transparent"></div>
-  <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/15 to-transparent"></div>
-
-  <div class="relative z-10 max-w-4xl mx-auto px-6 lg:px-12 text-center">
-    <!-- Gold opening mark -->
+  <div class="relative z-10 max-w-4xl mx-auto px-6 lg:px-12 text-center" data-reveal-group>
     <span
-      class="reveal-philo inline-block font-serif text-5xl text-[#D4AF37] opacity-60 mb-6 leading-none"
+      class="inline-block font-serif text-5xl text-[#D4AF37] opacity-60 mb-6 leading-none"
       aria-hidden="true"
+      data-reveal-item
     >"</span>
 
-    <!-- Citation principale -->
     <blockquote
-      class="reveal-philo font-serif text-[clamp(1.4rem,3.5vw,2.25rem)] font-normal italic text-[#CCCCCC] leading-relaxed mb-10"
-      style="animation-delay: 0.15s"
+      class="font-serif text-[clamp(1.4rem,3.5vw,2.25rem)] font-normal italic text-[#CCCCCC] leading-relaxed mb-10"
+      data-reveal-item
     >
       Une entreprise, ce n'est pas juste des chiffres.<br />
       C'est des années de travail, de sacrifices<br class="hidden sm:block" />
       et de bâtir quelque chose de solide.
     </blockquote>
 
-    <!-- Gold divider -->
-    <div class="reveal-philo flex justify-center mb-10" style="animation-delay: 0.3s">
+    <div class="flex justify-center mb-10" data-reveal-item>
       <div class="w-12 h-px bg-[#D4AF37] opacity-40"></div>
     </div>
 
-    <!-- Réponse -->
-    <p
-      class="reveal-philo font-sans text-base md:text-lg text-[#D4AF37] tracking-wide"
-      style="animation-delay: 0.45s"
-    >
+    <p class="font-sans text-base md:text-lg text-[#D4AF37] tracking-wide" data-reveal-item>
       C'est exactement pour ça qu'on prend le temps de bien faire les choses.
     </p>
   </div>
 </section>
-
-<script>
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("revealed");
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.2 }
-  );
-
-  document.querySelectorAll("#philosophie .reveal-philo").forEach((el) => {
-    observer.observe(el);
-  });
-</script>
-
-<style>
-  .reveal-philo {
-    opacity: 0;
-    transform: translateY(20px);
-    transition:
-      opacity 1s cubic-bezier(0.22, 1, 0.36, 1),
-      transform 1s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-
-  .reveal-philo:nth-child(2) { transition-delay: 0.15s; }
-  .reveal-philo:nth-child(3) { transition-delay: 0.3s; }
-  .reveal-philo:nth-child(4) { transition-delay: 0.45s; }
-
-  .revealed {
-    opacity: 1;
-    transform: translateY(0);
-  }
-</style>

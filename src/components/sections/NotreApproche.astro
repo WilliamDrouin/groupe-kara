@@ -51,13 +51,11 @@ const piliers = [
 ---
 
 <section id="criteres" class="relative py-32 lg:py-40 bg-[#0C0C0C]">
-  <!-- Top line accent -->
-  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/20 to-transparent">
-  </div>
+  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/20 to-transparent"></div>
 
   <div class="max-w-7xl mx-auto px-6 lg:px-12">
     <!-- Section header -->
-    <div class="max-w-2xl mb-24 reveal-approche">
+    <div class="max-w-2xl mb-24" data-reveal>
       <span class="inline-block font-sans text-[10px] tracking-[0.4em] uppercase text-[#D4AF37] mb-6">
         Notre engagement
       </span>
@@ -68,37 +66,26 @@ const piliers = [
     </div>
 
     <!-- Piliers grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0" data-reveal-group>
       {
-        piliers.map((pilier, i) => (
+        piliers.map((pilier) => (
           <div
-            class="pilier reveal-approche relative group px-8 py-10 lg:py-12 border-[#1A1A1A] transition-all duration-500
+            class="relative group px-8 py-10 lg:py-12 border-[#1A1A1A] transition-all duration-500
               border-t
               md:border-l md:first:border-l-0
               lg:border-t-0 lg:border-l lg:first:border-l-0
               hover:bg-[#0F0F0F]"
-            style={`transition-delay: ${i * 0.1}s`}
+            data-reveal-item
           >
-            <!-- Gold top bar on hover -->
             <div class="absolute top-0 left-0 h-px w-0 bg-[#D4AF37] transition-all duration-700 group-hover:w-full" />
-
-            <!-- Icon -->
             <div class="mb-8" set:html={pilier.icon} />
-
-            <!-- Number -->
             <span class="block font-sans text-[10px] tracking-[0.3em] text-[#333333] mb-4 uppercase">
               {pilier.number}
             </span>
-
-            <!-- Title -->
             <h3 class="font-serif text-base font-semibold text-[#CCCCCC] mb-4 leading-snug group-hover:text-[#E8E8E8] transition-colors duration-300">
               {pilier.title}
             </h3>
-
-            <!-- Divider -->
             <div class="w-6 h-px bg-[#D4AF37] opacity-40 mb-4 transition-all duration-500 group-hover:w-10 group-hover:opacity-70" />
-
-            <!-- Description -->
             <p class="font-sans text-sm text-[#555555] leading-relaxed">
               {pilier.description}
             </p>
@@ -108,45 +95,5 @@ const piliers = [
     </div>
   </div>
 
-  <!-- Bottom separator -->
-  <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/10 to-transparent">
-  </div>
+  <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/10 to-transparent"></div>
 </section>
-
-<script>
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("revealed");
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.1 }
-  );
-
-  document.querySelectorAll("#criteres .reveal-approche").forEach((el) => {
-    observer.observe(el);
-  });
-</script>
-
-<style>
-  .reveal-approche {
-    opacity: 0;
-    transform: translateY(28px);
-    transition:
-      opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
-      transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-
-  .revealed {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .pilier:nth-child(1) { transition-delay: 0s; }
-  .pilier:nth-child(2) { transition-delay: 0.1s; }
-  .pilier:nth-child(3) { transition-delay: 0.2s; }
-  .pilier:nth-child(4) { transition-delay: 0.3s; }
-</style>

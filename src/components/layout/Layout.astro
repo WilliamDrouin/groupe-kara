@@ -30,8 +30,22 @@ const {
     <title>{title}</title>
   </head>
   <body class="bg-[#0A0A0A] text-[#E8E8E8] overflow-x-hidden">
+    <!-- Scroll progress bar -->
+    <div
+      id="scroll-progress"
+      class="fixed top-0 left-0 right-0 h-[2px] bg-[#D4AF37] origin-left z-[200]"
+      style="transform: scaleX(0)"
+      aria-hidden="true"
+    >
+    </div>
+
     <Nav />
     <slot />
     <Footer />
+
+    <script>
+      import { initAnimations } from "@/lib/animations";
+      initAnimations();
+    </script>
   </body>
 </html>
