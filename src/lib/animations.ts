@@ -13,8 +13,8 @@ export function initAnimations(): void {
   // ─── Scroll progress bar ────────────────────────────────────────────────
   const bar = document.getElementById("scroll-progress");
   if (bar) {
-    scroll(({ y }) => {
-      bar.style.transform = `scaleX(${y.progress})`;
+    scroll((progress: number) => {
+      bar.style.transform = `scaleX(${progress})`;
     });
   }
 
@@ -24,8 +24,8 @@ export function initAnimations(): void {
   const heroGlow = document.querySelector<HTMLElement>(".hero-glow");
   if (hero && heroGrid) {
     scroll(
-      ({ y }) => {
-        const offset = y.progress * 40;
+      (progress: number) => {
+        const offset = progress * 40;
         heroGrid.style.transform = `translateY(${offset}px)`;
         if (heroGlow) heroGlow.style.transform = `translateY(${offset * 0.6}px)`;
       },
