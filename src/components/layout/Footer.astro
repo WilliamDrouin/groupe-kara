@@ -1,57 +1,21 @@
 ---
-import { Image } from "astro:assets";
-import brandMark from "@/assets/images/groupekaralogo.jpg";
 ---
 
 <footer class="relative bg-[#080808] border-t border-[#141414] overflow-hidden">
   <!-- Top accent line -->
   <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/20 to-transparent"></div>
 
-  <!-- Brand mark watermark — centered, behind content -->
-  <Image
-    src={brandMark}
-    alt=""
-    aria-hidden="true"
-    loading="lazy"
-    class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[260px] h-[260px] object-contain opacity-[0.08] pointer-events-none select-none hidden md:block"
-    widths={[260, 320]}
-    sizes="260px"
-  />
-
   <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 py-16">
     <!-- Main row -->
     <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-10 mb-12">
       <!-- Logo + tagline -->
       <div>
-        <a href="#" class="flex items-center gap-3 group mb-3">
-          <svg
-            width="22"
-            height="22"
-            viewBox="0 0 28 28"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            class="opacity-70 group-hover:opacity-100 transition-opacity duration-300"
-            aria-hidden="true"
-          >
-            <path
-              d="M6 22L14 6L22 22"
-              stroke="#D4AF37"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M9.5 17H18.5"
-              stroke="#D4AF37"
-              stroke-width="1.5"
-              stroke-linecap="round"
-            />
-          </svg>
-          <span class="font-serif text-sm tracking-[0.25em] uppercase text-[#D4AF37] font-semibold">
+        <a href="#" class="group mb-3 inline-block">
+          <span class="font-serif text-sm tracking-[0.25em] uppercase text-[#D4AF37] font-semibold transition-opacity duration-300 group-hover:opacity-80">
             Groupe Kara
           </span>
         </a>
-        <p class="font-sans text-xs tracking-widest text-[#333333] uppercase ml-[34px]">
+        <p class="font-sans text-xs tracking-widest text-[#8A8A8A] uppercase">
           Acquérir. Structurer. Faire croître.
         </p>
       </div>
@@ -69,7 +33,7 @@ import brandMark from "@/assets/images/groupekaralogo.jpg";
               <li>
                 <a
                   href={href}
-                  class="font-sans text-[10px] tracking-widest uppercase text-[#2E2E2E] hover:text-[#D4AF37] transition-colors duration-300"
+                  class="font-sans text-[10px] tracking-widest uppercase text-[#8A8A8A] hover:text-[#D4AF37] transition-colors duration-300"
                 >
                   {label}
                 </a>
@@ -86,23 +50,23 @@ import brandMark from "@/assets/images/groupekaralogo.jpg";
     <!-- Bottom row -->
     <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
       <div class="flex flex-col gap-1">
-        <p class="font-sans text-[10px] text-[#2A2A2A] tracking-wide">
+        <p class="font-sans text-[10px] text-[#8A8A8A] tracking-wide">
           Québec, Canada &nbsp;·&nbsp;
           <a
             href="mailto:info@groupekara.ca"
-            class="hover:text-[#D4AF37]/50 transition-colors duration-300"
+            class="hover:text-[#D4AF37] transition-colors duration-300"
           >
             info@groupekara.ca
           </a>
         </p>
-        <p class="font-sans text-[10px] text-[#222222] tracking-wide">
+        <p class="font-sans text-[10px] text-[#6E6E6E] tracking-wide">
           © {new Date().getFullYear()} Groupe Kara. Tous droits réservés.
         </p>
       </div>
 
       <!-- Credit -->
-      <p class="font-sans text-[9px] tracking-widest text-[#1E1E1E] uppercase">
-        Conçu par <span class="text-[#252525]">PowerAi</span>
+      <p class="font-sans text-[9px] tracking-widest text-[#6E6E6E] uppercase">
+        Conçu par <span class="text-[#8A8A8A]">PowerAi</span>
       </p>
     </div>
   </div>
