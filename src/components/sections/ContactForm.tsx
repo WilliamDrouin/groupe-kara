@@ -27,7 +27,7 @@ const inputBase =
   "w-full bg-[#0F0F0F] border text-[#E8E8E8] font-sans text-sm px-4 py-3.5 placeholder-[#3A3A3A] transition-all duration-300 outline-none focus:border-[#D4AF37]/60 focus:bg-[#111111]";
 
 const labelBase =
-  "block font-sans text-[10px] tracking-[0.3em] uppercase text-[#555555] mb-2";
+  "block font-sans text-[10px] tracking-[0.3em] uppercase text-[#8A8A8A] mb-2";
 
 export default function ContactForm() {
   const [form, setForm] = useState<FormData>(EMPTY);
@@ -126,7 +126,7 @@ export default function ContactForm() {
           <p className="font-sans text-xs font-medium text-[#E8E8E8] mb-0.5">
             Message reçu
           </p>
-          <p className="font-sans text-xs text-[#666666] leading-relaxed">
+          <p className="font-sans text-xs text-[#A0A0A0] leading-relaxed">
             Merci. Nous vous contacterons dans les 24h en toute confidentialité.
           </p>
         </div>
@@ -183,7 +183,7 @@ export default function ContactForm() {
           <div>
             <label htmlFor="telephone" className={labelBase}>
               Téléphone{" "}
-              <span className="text-[#3A3A3A] normal-case tracking-normal">
+              <span className="text-[#6E6E6E] normal-case tracking-normal">
                 (optionnel)
               </span>
             </label>
@@ -275,7 +275,7 @@ export default function ContactForm() {
             )}
           </button>
 
-          <p className="font-sans text-[10px] text-[#3A3A3A] tracking-wide">
+          <p className="font-sans text-[10px] text-[#6E6E6E] tracking-wide">
             Vos informations restent entre nous.
           </p>
         </div>
