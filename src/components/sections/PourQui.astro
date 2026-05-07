@@ -1,7 +1,4 @@
 ---
-import { Image } from "astro:assets";
-import heroPourQui from "@/assets/images/entrepriseavendrephoto.jpg";
-
 const criteres = [
   {
     number: "01",
@@ -51,22 +48,6 @@ const criteres = [
 
 <section id="apropos" class="relative py-32 lg:py-40 bg-[#0A0A0A]">
   <div class="absolute top-0 left-1/2 -translate-x-1/2 w-px h-20 bg-gradient-to-b from-[#D4AF37] to-transparent opacity-20">
-  </div>
-
-  <!-- Section intro image -->
-  <div class="relative max-w-5xl mx-auto px-6 lg:px-12 mb-20 lg:mb-28" data-reveal>
-    <div class="relative overflow-hidden border border-[#1A1A1A]">
-      <Image
-        src={heroPourQui}
-        alt="Poignée de main entre deux dirigeants — entreprise à vendre"
-        loading="lazy"
-        class="w-full h-[280px] md:h-[360px] object-cover opacity-80"
-        widths={[640, 960, 1280]}
-        sizes="(max-width: 768px) 100vw, 1024px"
-      />
-      <div class="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/90 via-[#0A0A0A]/30 to-transparent"></div>
-      <div class="absolute inset-0 bg-gradient-to-r from-[#0A0A0A]/45 via-transparent to-[#0A0A0A]/45"></div>
-    </div>
   </div>
 
   <div class="max-w-7xl mx-auto px-6 lg:px-12">
